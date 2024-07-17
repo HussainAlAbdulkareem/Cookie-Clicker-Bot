@@ -29,6 +29,8 @@ while True:
     price_text = option.text.split("\n")[1].replace(",", "")
     price = float(price_text)
     if price < num_of_cookies:
-        print(num_of_cookies)
         driver.execute_script("arguments[0].click();", option)
         i += 1
+    else:
+        option = driver.find_element(By.ID, value=f"product{i-1}")
+        driver.execute_script("arguments[0].click();", option)
